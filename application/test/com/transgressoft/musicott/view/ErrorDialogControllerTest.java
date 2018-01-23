@@ -104,8 +104,8 @@ public class ErrorDialogControllerTest extends JavaFxTestBase<ErrorDialogControl
         StringWriter stringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(stringWriter);
         exception.printStackTrace(printWriter);
-
-        assertEquals(stringWriter.toString() + "\n", controller.getDetailsAreaText());
+        
+        assertEquals((stringWriter.toString() + "\n").replaceAll("\r\n", "\n"), controller.getDetailsAreaText());
     }
 
     @Test
